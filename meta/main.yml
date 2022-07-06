@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  role_name: bmc_asset
+  author: Jørn Ivar Holland
+  description: Add asset to BMC Remedy based on gathered facts from Cisco network-devices.
+  license: BSD-3-Clause
+  min_ansible_version: '2.9'
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: IOS
+      versions:
+        - all
+    - name: NXOS
+      versions:
+        - all
+  galaxy_tags:
+    - bmc
+    - remedy
+    - asset
+    - cisco
+
+
+dependencies: []

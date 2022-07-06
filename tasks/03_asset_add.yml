@@ -1,0 +1,28 @@
+---
+# tasks file for bmc_asset
+
+- name: add asset to bmc remedy
+  ansible.builtin.uri:
+    url: "{{ remedy_add_asset }}"
+    method: POST
+    headers:
+      Accept: application/json
+      Content-Type: application/json
+      Authorization: "{{ remedy_token }}"
+    body_format: json
+    body:
+      values:
+        Name: "{{ inventory_hostname }}"
+        Asset ID+: "{{ inventory_hostname }}"
+        Serial Number: "{{ ansible_facts.net_serialnum }}"
+        System Role: "{{ system_role }}"
+        AssetLifecycleStatus: "{{ assetlifecyclestatus }}"
+        Category: "{{ catagory }}"
+        Type: "{{ catagory_type }}"
+        Model Number: "{{ ansible_facts.net_model }}"
+        Data Set Id: BMC.ASSET
+    validate_certs: false
+    status_code: 204
+  when: output['json']['entries'][0] is undefined
+  delegate_to: localhost
+  changed_when: true

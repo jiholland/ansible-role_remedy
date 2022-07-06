@@ -1,0 +1,16 @@
+---
+# tasks file for bmc_asset
+
+- name: get asset from bmc remedy
+  ansible.builtin.uri:
+    url: "{{ remedy_get_asset }}%22{{ inventory_hostname }}%22"
+    method: GET
+    headers:
+      Accept: application/json
+      Content-Type: application/json
+      Authorization: "{{ remedy_token }}"
+    body_format: json
+    validate_certs: false
+  delegate_to: localhost
+  register: output
+  changed_when: false

@@ -1,0 +1,12 @@
+---
+# vars file for bmc_asset
+
+remedy_api: https://{{ remedy_host }}:{{ remedy_port }}/api
+remedy_asset: "{{ remedy_api }}/arsys/v1/entry/AST:ComputerSystem"
+remedy_get_asset: "{{ remedy_asset }}?q='Name'%3D"
+remedy_add_asset: "{{ remedy_asset }}?fields=values"
+
+system_role: Production
+assetlifecyclestatus: Deployed
+catagory: Hardware
+catagory_type: Network
