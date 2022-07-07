@@ -9,7 +9,6 @@
       Accept: application/json
       Content-Type: application/json
       Authorization: "{{ remedy_token }}"
-    body_format: json
     validate_certs: false
   delegate_to: localhost
   register: output
