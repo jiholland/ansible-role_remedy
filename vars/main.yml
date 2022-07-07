@@ -1,6 +1,8 @@
 ---
 # vars file for bmc_asset
 
+credentials: username={{ remedy_username }}&password={{ remedy_password }}
+
 login: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/login
 logout: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/logout
 

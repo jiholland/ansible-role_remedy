@@ -14,9 +14,11 @@ Role Variables
 defaults:
 - remedy\_fqdn
 - remedy\_port
-- credentials
+- remedy\_username
+- remedy\_password
 
 vars:
+- credentials
 - login
 - logout
 - read\_asset
