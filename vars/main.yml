@@ -4,7 +4,7 @@
 login: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/login
 logout: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/logout
 
-read_asset: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?q='Name'%3D"
+read_asset: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?q='Name'%3D
 create_asset: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?fields=values
 
 system_role: Production
