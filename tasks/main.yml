@@ -4,8 +4,8 @@
 - name: create token
   ansible.builtin.import_tasks: 01_token.yml
 
-- name: get asset
-  ansible.builtin.import_tasks: 02_asset_get.yml
+- name: read asset
+  ansible.builtin.import_tasks: 02_read_asset.yml
 
-- name: add asset
-  ansible.builtin.import_tasks: 03_asset_add.yml
+- name: create asset
+  ansible.builtin.import_tasks: 03_create_asset.yml
