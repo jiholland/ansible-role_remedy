@@ -11,9 +11,12 @@ BMC Remedy Version [9.1.10] >
 Role Variables
 --------------
 
+defaults:
 - remedy\_fqdn
 - remedy\_port
-- creadentials
+- credentials
+
+vars:
 - login
 - logout
 - read\_asset
