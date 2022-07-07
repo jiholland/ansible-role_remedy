@@ -1,10 +1,11 @@
 ---
 # vars file for bmc_asset
 
-remedy_api: https://{{ remedy_host }}:{{ remedy_port }}/api
-remedy_asset: "{{ remedy_api }}/arsys/v1/entry/AST:ComputerSystem"
-remedy_get_asset: "{{ remedy_asset }}?q='Name'%3D"
-remedy_add_asset: "{{ remedy_asset }}?fields=values"
+login: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/login
+logout: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/logout
+
+read_asset: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?q='Name'%3D"
+create_asset: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?fields=values
 
 system_role: Production
 assetlifecyclestatus: Deployed

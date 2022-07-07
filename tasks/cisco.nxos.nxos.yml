@@ -1,4 +1,0 @@
----
-- name: gather facts
-  cisco.nxos.nxos_facts:
-    gather_subset: min

@@ -1,4 +1,0 @@
----
-- name: gather facts
-  cisco.ios.ios_facts:
-    gather_subset: min

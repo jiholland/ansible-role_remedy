@@ -1,14 +1,14 @@
 ---
 # tasks file for bmc_asset
 
-- name: add asset to bmc remedy
+- name: create asset in bmc remedy
   ansible.builtin.uri:
-    url: "{{ remedy_add_asset }}"
+    url: "{{ create_asset }}"
     method: POST
     headers:
       Accept: application/json
       Content-Type: application/json
-      Authorization: "{{ remedy_token }}"
+      Authorization: "{{ token }}"
     body_format: json
     body:
       values:

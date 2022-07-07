@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Role for adding asset to BMC Remedy based on gathered facts from Cisco network-devices.
+Role for creating asset in BMC Remedy based on gathered facts.
 
 Requirements
 ------------
@@ -11,13 +11,13 @@ BMC Remedy Version [9.1.10] >
 Role Variables
 --------------
 
-- remedy\_host
+- remedy\_fqdn
 - remedy\_port
-- remedy\_username\_and\_password
-- remedy\_api
-- remedy\_asset
-- remedy\_get\_asset
-- remedy\_add\_asset
+- creadentials
+- login
+- logout
+- read\_asset
+- create\_asset
 - system\_role
 - assetlifecyclestatus
 - catagory
@@ -32,13 +32,12 @@ Example Playbook
 ----------------
 
     ---
-    - name: add target to bmc remedy
+    - name: create target as asset in bmc remedy
       hosts: "{{ target }}"
-      gather_facts: false
+      gather_facts: true
 
       roles:
-        - role: bmc_asset
-          tags: asset
+        - bmc_asset
 
 License
 -------

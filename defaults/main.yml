@@ -1,6 +1,6 @@
 ---
 # defaults for bmc_asset
 
-remedy_host: nor-remedy-01.com
+remedy_fqdn: remedy.company.com
 remedy_port: 8443
-remedy_username_and_password: username=MyUsername&password=MyPassword
+remedy_credentials: username=MyUsername&password=MyPassword
