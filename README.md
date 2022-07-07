@@ -6,7 +6,8 @@ Role for creating asset in BMC Remedy based on gathered facts.
 Requirements
 ------------
 
-BMC Remedy Version [9.1.10] >
+BMC Remedy Version 9.1.10> (tested) <br>
+Change variables in defaults/main.yml to match your environment.
 
 Role Variables
 --------------
