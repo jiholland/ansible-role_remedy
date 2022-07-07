@@ -1,5 +1,5 @@
 ---
-# defaults for bmc_asset
+# defaults file for bmc_asset
 
 remedy_fqdn: remedy.company.com
 remedy_port: 8443
