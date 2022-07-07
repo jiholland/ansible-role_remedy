@@ -1,12 +1,12 @@
 ---
 # handlers file for bmc_asset
 
-- name: release token
+- name: release remedy token
   ansible.builtin.uri:
-    url: "{{ logout }}"
+    url: "{{ remedy_logout }}"
     method: POST
     headers:
-      Authorization: "{{ token }}"
+      Authorization: "{{ remedy_token }}"
     validate_certs: false
     status_code: 204
   delegate_to: localhost

@@ -3,12 +3,12 @@
 
 - name: post token
   ansible.builtin.uri:
-    url: "{{ login }}"
+    url: "{{ remedy_login }}"
     method: POST
     headers:
       Content-Type: application/x-www-form-urlencoded
     body:
-      "{{ credentials }}"
+      "{{ remedy_credentials }}"
     return_content: true
     validate_certs: false
     status_code: 200
@@ -16,10 +16,10 @@
   run_once: true
   register: output
   changed_when: true
-  notify: release token
+  notify: release remedy token
 
 - name: set token as fact
   ansible.builtin.set_fact:
-    token: AR-JWT {{ output.content }}
+    remedy_token: AR-JWT {{ output.content }}
   delegate_to: localhost
   run_once: true

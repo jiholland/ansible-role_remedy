@@ -19,11 +19,11 @@ defaults:
 - remedy\_password
 
 vars:
-- credentials
-- login
-- logout
-- read\_asset
-- create\_asset
+- remedy\_credentials
+- remedy\_login
+- remedy\_logout
+- remedy\_read\_asset
+- remedy\_create\_asset
 - system\_role
 - assetlifecyclestatus
 - catagory
@@ -43,7 +43,8 @@ Example Playbook
       gather_facts: true
 
       roles:
-        - bmc_asset
+        - role: bmc_asset
+          tags: asset
 
 License
 -------

@@ -3,12 +3,12 @@
 
 - name: create asset in bmc remedy
   ansible.builtin.uri:
-    url: "{{ create_asset }}"
+    url: "{{ remedy_create_asset }}"
     method: POST
     headers:
       Accept: application/json
       Content-Type: application/json
-      Authorization: "{{ token }}"
+      Authorization: "{{ remedy_token }}"
     body_format: json
     body:
       values:

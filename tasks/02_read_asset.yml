@@ -3,12 +3,12 @@
 
 - name: read asset from bmc remedy
   ansible.builtin.uri:
-    url: "{{ read_asset }}%22{{ inventory_hostname }}%22"
+    url: "{{ remedy_read_asset }}%22{{ inventory_hostname }}%22"
     method: GET
     headers:
       Accept: application/json
       Content-Type: application/json
-      Authorization: "{{ token }}"
+      Authorization: "{{ remedy_token }}"
     body_format: json
     validate_certs: false
   delegate_to: localhost
