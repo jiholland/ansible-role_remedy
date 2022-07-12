@@ -16,6 +16,9 @@ galaxy_info:
     - bmc
     - remedy
     - asset
+    - cisco
+    - catalyst
+    - nexus
 
 
 dependencies: []
