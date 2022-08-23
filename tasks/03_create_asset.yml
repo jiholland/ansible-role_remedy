@@ -1,7 +1,7 @@
 ---
 # tasks file for bmc_asset
 
-- name: create asset in bmc remedy
+- name: Create asset in bmc remedy
   ansible.builtin.uri:
     url: "{{ remedy_create_asset }}"
     method: POST

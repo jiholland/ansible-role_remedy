@@ -1,7 +1,7 @@
 ---
 # handlers file for bmc_asset
 
-- name: release remedy token
+- name: Release remedy token
   ansible.builtin.uri:
     url: "{{ remedy_logout }}"
     method: POST
