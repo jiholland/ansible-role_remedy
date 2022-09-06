@@ -1,5 +1,5 @@
-Role Name
-=========
+BMC\_asset
+==========
 
 Role for creating asset in BMC Remedy based on gathered facts from Cisco Catalyst and Nexus devices.
 
@@ -38,7 +38,7 @@ Example Playbook
 ----------------
 
     ---
-    - name: create target as asset in bmc remedy
+    - name: Create target as asset in bmc remedy
       hosts: "{{ target }}"
       gather_facts: true
 
