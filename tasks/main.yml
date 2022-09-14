@@ -1,11 +1,11 @@
 ---
 # tasks file for bmc_asset
 
-- name: create token
+- name: Create token
   ansible.builtin.import_tasks: 01_token.yml
 
-- name: read asset
+- name: Read asset
   ansible.builtin.import_tasks: 02_read_asset.yml
 
-- name: create asset
+- name: Create asset
   ansible.builtin.import_tasks: 03_create_asset.yml

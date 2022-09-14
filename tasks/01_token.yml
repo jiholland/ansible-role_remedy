@@ -16,7 +16,7 @@
   run_once: true
   register: output
   changed_when: true
-  notify: release remedy token
+  notify: Release remedy token
 
 - name: Set token as fact
   ansible.builtin.set_fact:
