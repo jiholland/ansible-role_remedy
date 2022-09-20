@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   role_name: bmc_asset
+  standalone: true
   author: Jørn Ivar Holland
   description: Create asset in BMC Remedy based on gathered facts from Cisco Catalyst and Nexus devices.
   license: BSD-3-Clause
