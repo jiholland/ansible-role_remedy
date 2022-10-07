@@ -18,17 +18,6 @@ defaults:
 - remedy\_username
 - remedy\_password
 
-vars:
-- remedy\_credentials
-- remedy\_login
-- remedy\_logout
-- remedy\_read\_asset
-- remedy\_create\_asset
-- system\_role
-- assetlifecyclestatus
-- catagory
-- catagory\_type
-
 Dependencies
 ------------
 
