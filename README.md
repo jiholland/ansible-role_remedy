@@ -6,13 +6,11 @@ Role for creating asset in BMC Remedy based on gathered facts from Cisco Catalys
 Requirements
 ------------
 
-BMC Remedy Version 9.1.10> (tested) <br>
-Change variables in defaults/main.yml to match your environment.
+BMC Remedy Version 9.1.10> (tested).
 
 Role Variables
 --------------
 
-defaults:
 - remedy\_fqdn
 - remedy\_port
 - remedy\_username
@@ -27,7 +25,7 @@ Example Playbook
 ----------------
 
     ---
-    - name: Create target as asset in bmc remedy
+    - name: Create asset in BMC remedy based on gathered facts from target.
       hosts: "{{ target }}"
       gather_facts: true
 
