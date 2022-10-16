@@ -3,7 +3,7 @@ galaxy_info:
   role_name: bmc_asset
   standalone: true
   author: Jørn Ivar Holland
-  description: Create asset in BMC Remedy based on gathered facts from Cisco Catalyst and Nexus devices.
+  description: Create asset in BMC Remedy based on gathered facts.
   license: BSD-3-Clause
   min_ansible_version: '2.9'
   platforms:
@@ -14,12 +14,10 @@ galaxy_info:
       versions:
         - all
   galaxy_tags:
+    - system
     - bmc
     - remedy
     - asset
-    - cisco
-    - catalyst
-    - nexus
 
 
 dependencies: []

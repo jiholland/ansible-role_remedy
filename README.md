@@ -1,12 +1,12 @@
-🧾 bmc\_asset
-============
+bmc\_asset
+==========
 
-Role for creating asset in BMC Remedy based on gathered facts from Cisco Catalyst and Nexus devices.
+🧾 Creating asset in BMC Remedy based on gathered facts.
 
 Requirements
 ------------
 
-BMC Remedy Version 9.1.10> (tested).
+BMC Remedy Version 9.1.10 (tested).
 
 Role Variables
 --------------
