@@ -1,0 +1,6 @@
+---
+# tasks file for remedy
+
+- name: setup_cisco.nxos.nxos | Gather facts.
+  cisco.nxos.nxos_facts:
+    gather_subset: min

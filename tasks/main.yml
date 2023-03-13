@@ -1,5 +1,13 @@
 ---
-# tasks file for bmc_asset
+# tasks file for remedy
+
+- name: Include OS-specific variables.
+  ansible.builtin.include_tasks:
+    file: "{{ ansible_network_os }}.yml"
+
+- name: Include OS-specific tasks.
+  ansible.builtin.include_vars:
+    file: setup_{{ ansible_network_os }}.yml
 
 - name: Create token.
   ansible.builtin.uri:
@@ -14,13 +22,14 @@
     status_code: 200
   delegate_to: localhost
   run_once: true
-  register: output
+  register: remedy_token_output
+  check_mode: false
   changed_when: true
-  notify: Release remedy token
+  notify: Release remedy token.
 
 - name: Set token as fact.
   ansible.builtin.set_fact:
-    remedy_token: AR-JWT {{ output.content }}
+    remedy_token: AR-JWT {{ remedy_token_output.content }}
   delegate_to: localhost
   run_once: true
 
@@ -34,7 +43,8 @@
       Authorization: "{{ remedy_token }}"
     validate_certs: false
   delegate_to: localhost
-  register: output
+  register: remedy_asset_output
+  check_mode: false
   changed_when: false
 
 - name: Create asset in BMC Remedy.
@@ -48,17 +58,18 @@
     body_format: json
     body:
       values:
-        Name: "{{ inventory_hostname }}"
-        Asset ID+: "{{ inventory_hostname }}"
-        Serial Number: "{{ ansible_facts.net_serialnum }}"
-        System Role: "{{ system_role }}"
-        AssetLifecycleStatus: "{{ assetlifecyclestatus }}"
-        Category: "{{ catagory }}"
-        Type: "{{ catagory_type }}"
-        Model Number: "{{ ansible_facts.net_model }}"
+        Name: "{{ remedy_asset_name }}"
+        Asset ID+: "{{ remedy_asset_id }}"
+        Primary Capability: "{{ remedy_asset_device_type }}"
+        Serial Number: "{{ remedy_asset_serial_number }}"
+        System Role: "{{ remedy_asset_system_role }}"
+        AssetLifecycleStatus: "{{ remedy_asset_assetlifecyclestatus }}"
+        Category: "{{ remedy_asset_catagory }}"
+        Type: "{{ remedy_asset_catagory_type }}"
+        Model Number: "{{ remedy_asset_model_number }}"
         Data Set Id: BMC.ASSET
     validate_certs: false
     status_code: 204
-  when: output['json']['entries'][0] is undefined
+  when: remedy_asset_output['json']['entries'][0] is undefined
   delegate_to: localhost
   changed_when: true

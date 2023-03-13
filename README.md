@@ -1,12 +1,12 @@
-bmc\_asset
-==========
+remedy
+======
 
-🧾 Creating asset in BMC Remedy based on gathered facts.
+Create asset in BMC Remedy.
 
 Requirements
 ------------
 
-BMC Remedy Version 9.1.10 (tested).
+None.
 
 Role Variables
 --------------
@@ -15,6 +15,12 @@ Role Variables
 - remedy\_port
 - remedy\_username
 - remedy\_password
+- remedy\_asset\_name
+- remedy\_asset\_id
+- remedy\_asset\_serial\_number
+- remedy\_asset\_system\_role
+- remedy\_asset\_assetlifecyclestatus
+- remedy\_asset\_model\_number
 
 Dependencies
 ------------
@@ -25,13 +31,13 @@ Example Playbook
 ----------------
 
     ---
-    - name: Create asset in BMC remedy based on gathered facts from target.
+    - name: Create asset in BMC remedy.
       hosts: "{{ target }}"
       gather_facts: true
 
       roles:
-        - role: bmc_asset
-          tags: asset
+        - role: remedy
+          tags: remedy
 
 License
 -------

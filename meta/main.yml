@@ -1,9 +1,9 @@
 ---
 galaxy_info:
-  role_name: bmc_asset
+  role_name: remedy
   standalone: true
   author: Jørn Ivar Holland
-  description: Create asset in BMC Remedy based on gathered facts.
+  description: Create asset in BMC Remedy.
   license: BSD-3-Clause
   min_ansible_version: '2.9'
   platforms:
