@@ -1,0 +1,6 @@
+---
+# vars file for remedy
+
+remedy_asset_device_type: Switch
+remedy_asset_catagory: Hardware
+remedy_asset_catagory_type: Network

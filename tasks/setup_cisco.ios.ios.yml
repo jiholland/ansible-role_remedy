@@ -1,0 +1,6 @@
+---
+# tasks file for remedy
+
+- name: setup_cisco.ios.ios | Gather facts.
+  cisco.ios.ios_facts:
+    gather_subset: min

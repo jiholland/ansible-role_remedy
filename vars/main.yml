@@ -1,5 +1,5 @@
 ---
-# vars file for bmc_asset
+# vars file for remedy
 
 remedy_credentials: "username={{ remedy_username }}&password={{ remedy_password }}"
 
@@ -8,8 +8,3 @@ remedy_logout: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/logout
 
 remedy_read_asset: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?q='Name'%3D
 remedy_create_asset: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?fields=values
-
-system_role: Production
-assetlifecyclestatus: Deployed
-catagory: Hardware
-catagory_type: Network
