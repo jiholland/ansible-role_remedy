@@ -21,6 +21,11 @@ Role Variables
 - remedy\_asset\_system\_role
 - remedy\_asset\_assetlifecyclestatus
 - remedy\_asset\_model\_number
+- remedy\_credentials
+- remedy\_login
+- remedy\_logout
+- remedy\_read\_asset
+- remedy\_create\_asset
 
 Dependencies
 ------------
