@@ -1,5 +1,5 @@
-remedy
-======
+jiholland.remedy
+================
 
 Create asset in BMC Remedy.
 
@@ -34,16 +34,15 @@ None.
 
 Example Playbook
 ----------------
+```YAML
+---
+- name: Create asset in BMC remedy.
+  hosts: "{{ target }}"
+  gather_facts: true
 
-    ---
-    - name: Create asset in BMC remedy.
-      hosts: "{{ target }}"
-      gather_facts: true
-
-      roles:
-        - role: remedy
-          tags: remedy
-
+  roles:
+    - jiholland.remedy
+```
 License
 -------
 
