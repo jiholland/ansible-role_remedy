@@ -27,12 +27,6 @@
   changed_when: true
   notify: Release remedy token.
 
-- name: Set token as fact.
-  ansible.builtin.set_fact:
-    remedy_token: AR-JWT {{ remedy_token_output.content }}
-  delegate_to: localhost
-  run_once: true
-
 - name: Read asset from BMC Remedy.
   ansible.builtin.uri:
     url: "{{ remedy_read_asset }}%22{{ inventory_hostname }}%22"
@@ -58,15 +52,15 @@
     body_format: json
     body:
       values:
-        Name: "{{ remedy_asset_name }}"
-        Asset ID+: "{{ remedy_asset_id }}"
-        Primary Capability: "{{ remedy_asset_device_type }}"
-        Serial Number: "{{ remedy_asset_serial_number }}"
-        System Role: "{{ remedy_asset_system_role }}"
-        AssetLifecycleStatus: "{{ remedy_asset_assetlifecyclestatus }}"
-        Category: "{{ remedy_asset_catagory }}"
-        Type: "{{ remedy_asset_catagory_type }}"
-        Model Number: "{{ remedy_asset_model_number }}"
+        Name: "{{ remedy_asset['name'] }}"
+        Asset ID+: "{{ remedy_asset['id'] }}"
+        Primary Capability: "{{ remedy_asset['device_type'] }}"
+        Serial Number: "{{ remedy_asset['serial_number'] }}"
+        System Role: "{{ remedy_asset['system_role'] }}"
+        AssetLifecycleStatus: "{{ remedy_asset['assetlifecyclestatus'] }}"
+        Category: "{{ remedy_asset['catagory'] }}"
+        Type: "{{ remedy_asset['catagory_type'] }}"
+        Model Number: "{{ remedy_asset['model_number'] }}"
         Data Set Id: BMC.ASSET
     validate_certs: false
     status_code: 204
