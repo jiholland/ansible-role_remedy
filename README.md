@@ -1,7 +1,7 @@
 jiholland.remedy
 ================
 
-Create asset in BMC Remedy.
+Create asset in BMC remedy.
 
 Requirements
 ------------
@@ -11,11 +11,17 @@ None.
 Role Variables
 --------------
 
-- remedy\_fqdn
-- remedy\_port
-- remedy\_username
-- remedy\_password
-- remedy\_asset
+- remedy_fqdn
+- remedy_port
+- remedy_username
+- remedy_password
+- remedy_device_type
+- remedy_catagory
+- remedy_catagory_type
+- remedy_name
+- remedy_id
+- remedy_serial
+- remedy_system_role
 
 Dependencies
 ------------
@@ -27,8 +33,8 @@ Example Playbook
 ```YAML
 ---
 - name: Create asset in BMC remedy.
-  hosts: "{{ target }}"
   gather_facts: true
+  hosts: "{{ target }}"
 
   roles:
     - jiholland.remedy

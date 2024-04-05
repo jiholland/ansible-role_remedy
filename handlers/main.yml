@@ -1,12 +1,12 @@
 ---
-# handlers file for remedy
+# handlers file for remedy.
 
 - name: Release remedy token.
   ansible.builtin.uri:
-    url: "{{ remedy_logout }}"
+    url: "{{ __remedy_logout }}"
     method: POST
     headers:
-      Authorization: "{{ remedy_token }}"
+      Authorization: "AR-JWT {{ __remedy_token_output['content'] }}"
     validate_certs: false
     status_code: 204
   delegate_to: localhost

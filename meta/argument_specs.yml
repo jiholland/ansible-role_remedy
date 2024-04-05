@@ -1,0 +1,19 @@
+---
+# Argument specification file for remedy
+
+
+argument_specs:
+  main:
+    options:
+
+      remedy_fqdn:
+        type: str
+
+      remedy_port:
+        type: int
+
+      remedy_username:
+        type: str
+
+      remedy_password:
+        type: str

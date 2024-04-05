@@ -1,12 +1,8 @@
 ---
 # vars file for remedy
 
-remedy_token: AR-JWT {{ remedy_token_output['content'] }}
-
-remedy_credentials: "username={{ remedy_username }}&password={{ remedy_password }}"
-
-remedy_login: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/login
-remedy_logout: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/logout
-
-remedy_read_asset: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?q='Name'%3D
-remedy_create_asset: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?fields=values
+__remedy_credentials: "username={{ remedy_username }}&password={{ remedy_password }}"
+__remedy_login: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/login
+__remedy_logout: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/jwt/logout
+__remedy_read_remedy: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?q='Name'%3D
+__remedy_create_remedy: https://{{ remedy_fqdn }}:{{ remedy_port }}/api/arsys/v1/entry/AST:ComputerSystem?fields=values

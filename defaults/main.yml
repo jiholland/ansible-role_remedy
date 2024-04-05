@@ -1,17 +1,17 @@
 ---
 # defaults file for remedy
 
-remedy_fqdn: remedy.company.com
+remedy_fqdn: example.com
 remedy_port: 8443
 
-remedy_username: MyUsername
-remedy_password: MyPassword  # Encrypt with ansible_vault
+remedy_username: example
+remedy_password: example
 
-# Asset related defaults
-remedy_asset:
-  name: "{{ inventory_hostname }}"
-  id: "{{ inventory_hostname }}"
-  serial_number: "{{ ansible_facts.net_serialnum }}"
-  system_role: Production
-  assetlifecyclestatus: Deployed
-  model_number: "{{ ansible_facts.net_model }}"
+remedy_device_type: Switch
+remedy_catagory: Hardware
+remedy_catagory_type: Network
+
+remedy_name: "{{ inventory_hostname }}"
+remedy_id: "{{ inventory_hostname }}"
+remedy_system_role: Production
+remedy_remedylifecyclestatus: Deployed
