@@ -1,69 +1,65 @@
 ---
 # tasks file for remedy
 
-- name: Include OS-specific variables.
-  ansible.builtin.include_vars:
-    file: "{{ ansible_network_os }}.yml"
-
 - name: Include OS-specific tasks.
   ansible.builtin.include_tasks:
-    file: setup_{{ ansible_network_os }}.yml
+    file: "{{ role_path }}/tasks/setup_{{ ansible_network_os }}.yml"
 
 - name: Create token.
   ansible.builtin.uri:
-    url: "{{ remedy_login }}"
+    url: "{{ __remedy_login }}"
     method: POST
     headers:
-      Content-Type: application/x-www-form-urlencoded
+      Content-Type: "application/x-www-form-urlencoded"
     body:
-      "{{ remedy_credentials }}"
+      "{{ __remedy_credentials }}"
     return_content: true
     validate_certs: false
     status_code: 200
   delegate_to: localhost
   run_once: true
-  register: remedy_token_output
-  check_mode: false
+  register: __remedy_token_output
   changed_when: true
+  check_mode: false
   notify: Release remedy token.
 
 - name: Read asset from BMC Remedy.
   ansible.builtin.uri:
-    url: "{{ remedy_read_asset }}%22{{ inventory_hostname }}%22"
+    url: "{{ __remedy_read_remedy }}%22{{ remedy_name }}%22"
     method: GET
     headers:
-      Accept: application/json
-      Content-Type: application/json
-      Authorization: "{{ remedy_token }}"
+      Accept: "application/json"
+      Content-Type: "application/json"
+      Authorization: "AR-JWT {{ __remedy_token_output['content'] }}"
     validate_certs: false
   delegate_to: localhost
-  register: remedy_asset_output
-  check_mode: false
+  register: __remedy_output
   changed_when: false
+  check_mode: false
 
 - name: Create asset in BMC Remedy.
   ansible.builtin.uri:
-    url: "{{ remedy_create_asset }}"
+    url: "{{ __remedy_create_remedy }}"
     method: POST
     headers:
-      Accept: application/json
-      Content-Type: application/json
-      Authorization: "{{ remedy_token }}"
+      Accept: "application/json"
+      Content-Type: "application/json"
+      Authorization: "AR-JWT {{ __remedy_token_output['content'] }}"
     body_format: json
     body:
       values:
-        Name: "{{ remedy_asset['name'] }}"
-        Asset ID+: "{{ remedy_asset['id'] }}"
-        Primary Capability: "{{ remedy_asset['device_type'] }}"
-        Serial Number: "{{ remedy_asset['serial_number'] }}"
-        System Role: "{{ remedy_asset['system_role'] }}"
-        AssetLifecycleStatus: "{{ remedy_asset['assetlifecyclestatus'] }}"
-        Category: "{{ remedy_asset['catagory'] }}"
-        Type: "{{ remedy_asset['catagory_type'] }}"
-        Model Number: "{{ remedy_asset['model_number'] }}"
-        Data Set Id: BMC.ASSET
+        Name: "{{ remedy_name }}"
+        remedy ID+: "{{ remedy_id }}"
+        Primary Capability: "{{ remedy_device_type }}"
+        Serial Number: "{{ ansible_facts['net_serialnum'] }}"
+        System Role: "{{ remedy_system_role }}"
+        remedyLifecycleStatus: "{{ remedy_remedylifecyclestatus }}"
+        Category: "{{ remedy_catagory }}"
+        Type: "{{ remedy_catagory_type }}"
+        Model Number: "{{ ansible_facts['net_model'] }}"
+        Data Set Id: BMC.remedy
     validate_certs: false
     status_code: 204
-  when: remedy_asset_output['json']['entries'][0] is undefined
+  when: __remedy_output['json']['entries'][0] is undefined
   delegate_to: localhost
   changed_when: true
